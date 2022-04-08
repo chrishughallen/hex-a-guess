@@ -70,6 +70,17 @@ function App() {
     )
   })
 
+  const winningMessage = () => {
+    if (guesses == 1) {
+      return "Winner in 1 guess! All hail the hex master!"
+    } else if (guesses >1 && guesses <=3) {
+      return `You Win with only ${guesses} guesses! That's impressive!`
+    } else if (guesses > 3 && guesses < 5) {
+      return "You Win! Not bad for an amateur."
+    }
+    return `${guesses} guesses... You win, I guess..`
+  }
+
   return (
     <div className="App">
       {win && <Confetti/>}
@@ -80,7 +91,7 @@ function App() {
         <div className="palette">
           {colors}
         </div>
-        {win && <h3>Winner!</h3>}
+        {win && <h3>{winningMessage()}</h3>}
         {win && <button onClick={() => resetGame()}>New Game</button>}
       </div>
     </div>
