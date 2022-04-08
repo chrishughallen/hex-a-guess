@@ -1,13 +1,15 @@
 import './ColorBlock.css'
 
-export default function ColorBlock(props) {
-  let style = {
-    backgroundColor: props.color
+
+
+export default function ColorBlock({color, boxColor, checkGuess, showHex}) {
+  const style = {
+    backgroundColor: color
   }
 
-  return(
-    <div id={props.boxColor} onClick={props.checkGuess} style={style} className="color-block">
-      {props.showHex && <p>{props.color}</p>}
+  return (
+    <div id={boxColor} onClick={checkGuess} style={style} className="color-block">
+      {showHex && <p>{color}</p>}
     </div>
   )
 }
